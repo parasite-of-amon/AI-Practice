@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleHub — Fashion &amp; Apparel</title>
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/shop.css" />
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <a href="/" class="logo" aria-label="StyleHub home">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">StyleHub</span>
+    </a>
+
+    <form class="search-form" id="search-form" role="search" novalidate>
+      <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+      </svg>
+      <input id="search-input" type="search" placeholder="Search brands, styles…" autocomplete="off" aria-label="Search products" />
+      <button type="submit" class="sr-only">Search</button>
+    </form>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle dark / light mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button id="cart-btn" class="icon-btn cart-btn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cart-badge" hidden>0</span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="cat-nav" aria-label="Product categories">
+    <div class="cat-nav-inner">
+      <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="womens">Women's</button>
+      <button class="cat-btn" data-cat="mens">Men's</button>
+      <button class="cat-btn" data-cat="shoes">Shoes</button>
+      <button class="cat-btn" data-cat="accessories">Accessories</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ── HERO ────────────────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">New Season · 2026</p>
+    <h1 class="hero-title">Dress for Every<br/>Moment</h1>
+    <p class="hero-sub">Curated fashion from the world's top brands</p>
+    <button class="btn btn-hero" id="hero-shop-btn">Shop the Collection</button>
+  </div>
+  <div class="hero-shapes" aria-hidden="true">
+    <div class="hero-circle hero-circle--1"></div>
+    <div class="hero-circle hero-circle--2"></div>
+    <div class="hero-circle hero-circle--3"></div>
+  </div>
+</section>
+
+<!-- ── MAIN CONTENT ────────────────────────────────────────────────────── -->
+<main class="main-content" id="products-section">
+  <div class="container">
+
+    <div class="toolbar">
+      <p class="result-count" id="result-count">Loading…</p>
+      <div class="sort-wrap">
+        <label for="sort-select" class="sort-label">Sort:</label>
+        <select id="sort-select" class="sort-select">
+          <option value="featured">Featured</option>
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="loading-state" class="loading-state" aria-live="polite">
+      <div class="skeleton-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </div>
+
+    <div id="empty-state" class="empty-state" hidden>
+      <div class="empty-icon">🔍</div>
+      <h2>No products found</h2>
+      <p>Try a different search term or category.</p>
+      <button class="btn btn-outline" id="clear-search-btn">Clear Search</button>
+    </div>
+
+    <div id="product-grid" class="product-grid" aria-label="Products" hidden></div>
+
+  </div>
+</main>
+
+<!-- ── CART SIDEBAR ────────────────────────────────────────────────────── -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+<aside class="cart-sidebar" id="cart-sidebar" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <h2 class="cart-title">
+      Your Cart
+      <span class="cart-item-count" id="cart-count-label">(0 items)</span>
+    </h2>
+    <div class="cart-header-actions">
+      <!-- T-16: Clear all — hidden when cart empty (managed by CartView._render) -->
+      <button id="clear-cart-btn" class="btn-text-danger" hidden>Clear all</button>
+      <button class="icon-btn close-cart-btn" id="close-cart-btn" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="cart-body" id="cart-body">
+    <div class="cart-empty" id="cart-empty">
+      <div class="cart-empty-icon">🛍️</div>
+      <p>Your cart is empty</p>
+      <button class="btn btn-outline" id="start-shopping-btn">Start Shopping</button>
+    </div>
+    <ul class="cart-items-list" id="cart-items-list" hidden></ul>
+  </div>
+
+  <div class="cart-footer" id="cart-footer" hidden>
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cart-total">$0.00</span>
+    </div>
+    <p class="cart-shipping-note">Shipping &amp; taxes calculated at checkout</p>
+    <button class="btn btn-primary btn-block">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- ── PRODUCT DETAIL MODAL (T-20) ─────────────────────────────────────── -->
+<div id="product-modal" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modal-name">
+  <div class="modal-panel">
+
+    <button id="close-product-modal" class="icon-btn modal-close-btn" aria-label="Close product details">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="modal-img-wrap">
+      <div id="modal-img-ph" class="modal-img-ph">👗</div>
+    </div>
+
+    <div class="modal-details">
+      <p id="modal-brand" class="modal-brand"></p>
+      <h2 id="modal-name" class="modal-name"></h2>
+      <p id="modal-color" class="modal-color-text"></p>
+
+      <div class="modal-pricing">
+        <span id="modal-price" class="modal-price"></span>
+        <span id="modal-orig-price" class="modal-orig-price" hidden></span>
+      </div>
+
+      <p id="modal-desc" class="modal-desc"></p>
+
+      <div class="modal-meta">
+        <span id="modal-size" class="modal-meta-item"></span>
+        <span id="modal-stock" class="modal-stock ok"></span>
+      </div>
+
+      <div class="modal-actions">
+        <div class="modal-qty-wrap">
+          <button id="modal-qty-dec" class="qty-btn" disabled aria-label="Decrease quantity">−</button>
+          <span id="modal-qty-val" class="qty-value" aria-label="Quantity">1</span>
+          <button id="modal-qty-inc" class="qty-btn" aria-label="Increase quantity">+</button>
+        </div>
+        <button id="modal-add-btn" class="btn btn-primary modal-add-btn">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TOAST ──────────────────────────────────────────────────────────── -->
+<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<script type="module" src="/js/theme.js"></script>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

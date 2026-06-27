@@ -1,0 +1,91 @@
+/* ── Light Theme (default) ───────────────────────────────────────────── */
+:root,
+:root[data-theme="light"] {
+  --bg-body:        #f4f4f6;
+  --bg-surface:     #ffffff;
+  --bg-surface-2:   #f9f9fb;
+  --bg-input:       #ffffff;
+  --text-primary:   #111118;
+  --text-secondary: #4a4a5a;
+  --text-muted:     #8888a0;
+  --border:         #e2e2ee;
+  --border-light:   #efeff5;
+
+  --header-bg:      #12121e;
+  --header-text:    #ffffff;
+  --header-muted:   #a0a0b8;
+
+  --accent:         #e01931;
+  --accent-hover:   #c5102a;
+  --accent-subtle:  #fff0f2;
+  --accent-text:    #b00020;
+
+  --green:          #16a34a;
+  --green-subtle:   #f0fdf4;
+
+  --cat-womens-from: #f9a8d4;
+  --cat-womens-to:   #db2777;
+  --cat-mens-from:   #93c5fd;
+  --cat-mens-to:     #2563eb;
+  --cat-shoes-from:  #fcd34d;
+  --cat-shoes-to:    #d97706;
+  --cat-acc-from:    #c4b5fd;
+  --cat-acc-to:      #7c3aed;
+
+  --shadow-sm:    0 1px 2px rgba(0,0,0,.06);
+  --shadow:       0 2px 8px rgba(0,0,0,.08);
+  --shadow-md:    0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,.12);
+
+  --radius-sm:  0.25rem;
+  --radius:     0.5rem;
+  --radius-md:  0.75rem;
+  --radius-lg:  1rem;
+  --radius-xl:  1.5rem;
+
+  --transition: 200ms cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Dark Theme ──────────────────────────────────────────────────────── */
+:root[data-theme="dark"] {
+  --bg-body:        #0c0c14;
+  --bg-surface:     #16161f;
+  --bg-surface-2:   #1e1e2a;
+  --bg-input:       #1e1e2a;
+  --text-primary:   #eeeef5;
+  --text-secondary: #a0a0b8;
+  --text-muted:     #606075;
+  --border:         #2a2a3a;
+  --border-light:   #222230;
+
+  --header-bg:      #0a0a12;
+  --header-text:    #eeeef5;
+  --header-muted:   #707088;
+
+  --accent:         #e01931;
+  --accent-hover:   #ff2244;
+  --accent-subtle:  #2a0008;
+  --accent-text:    #ff6680;
+
+  --green:          #22c55e;
+  --green-subtle:   #052e16;
+
+  --shadow-sm:    0 1px 2px rgba(0,0,0,.3);
+  --shadow:       0 2px 8px rgba(0,0,0,.4);
+  --shadow-md:    0 4px 16px rgba(0,0,0,.5);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,.6);
+}
+
+/* ── Typography & Spacing ────────────────────────────────────────────── */
+:root {
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+
+  --sp-1: .25rem;  --sp-2: .5rem;   --sp-3: .75rem;  --sp-4: 1rem;
+  --sp-5: 1.25rem; --sp-6: 1.5rem;  --sp-8: 2rem;    --sp-10: 2.5rem;
+  --sp-12: 3rem;   --sp-16: 4rem;   --sp-20: 5rem;
+
+  --header-h: 4rem;
+  --cat-nav-h: 2.75rem;
+  --sidebar-w: 420px;
+}
